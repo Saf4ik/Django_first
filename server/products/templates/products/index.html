@@ -1,0 +1,16 @@
+{% extends 'main/master.html' %}
+
+{% block page_title %}
+About page
+{% endblock %}
+
+{% block page_content %}
+    <ul class="product-list">
+    {% for item in products %}
+        <li>
+            
+            <a href="{% url 'products:detail' pk=forloop.counter0 %}"><span>{{ item.name }}</span></a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'main/master.html' %}
+
+{% block page_title %}
+Contacts page
+{% endblock %}
+
+{% block page_content %}
+    <ul class="contacts-list"></ul>
+    {% for item in contacts %}
+        <li>
+            <span>
+                {{ item }}
+            </span>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
