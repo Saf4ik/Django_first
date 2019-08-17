@@ -21,6 +21,13 @@
                         </li>
                         <li class="navigation-list__item">
                             <span class="navigation-list__item-text">
+                                Продукты
+                            </span>
+                            <a href="{% url 'products:index' %}" class="navigation-list__item-link">
+                            </a>
+                        </li>
+                        <li class="navigation-list__item">
+                            <span class="navigation-list__item-text">
                                 О проекте
                             </span>
                             <a href="{% url 'main:about' %}" class="navigation-list__item-link">
@@ -31,13 +38,6 @@
                                 Контакты
                             </span>
                             <a href="{% url 'main:contacts' %}" class="navigation-list__item-link">
-                            </a>
-                        </li>
-                        <li class="navigation-list__item">
-                            <span class="navigation-list__item-text">
-                                Каталог
-                            </span>
-                            <a href="{% url 'products:index' %}" class="navigation-list__item-link">
                             </a>
                         </li>
                     </ul>
