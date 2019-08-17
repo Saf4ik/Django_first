@@ -85,3 +85,7 @@ body {
     color: #fff;
     user-select: none; 
 }
+
+.user-name {
+    margin-left: 32px;
+}

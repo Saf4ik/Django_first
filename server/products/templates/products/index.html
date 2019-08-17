@@ -1,16 +1,23 @@
 {% extends 'main/master.html' %}
 
 {% block page_title %}
-About page
+Catalog page
 {% endblock %}
 
 {% block page_content %}
-    <ul class="product-list">
+    <link rel="stylesheet" href="/static/products/css/index.css">
+    <ul class="products_item">
     {% for item in products %}
         <li>
-            
-            <a href="{% url 'products:detail' pk=forloop.counter0 %}"><span>{{ item.name }}</span></a>
-        </li>
+            <span class="products__item-name">{{ item.name }}</span>
+            {% if item.description|length < 20 %}
+            <span class="products__item-description">{{item.description}}</span>
+            {% else %}
+            <span class="products__item-description">{{item.description|slice:'0:20'}}...</span>
+            {% endif %}
+            <span class="products__item-cost">{{ item.cost }}</span>
+            <a href="{% url 'products:detail' pk=item.id %}">Перейти</a>
+            </li>
     {% endfor %}
     </ul>
 {% endblock %}
