@@ -9,15 +9,20 @@ Catalog page
     <ul class="products_item">
     {% for item in products %}
         <li>
+            <img src="{{ item.image.url }}" alt="{{item.image}}" class="products__item-image">
             <span class="products__item-name">{{ item.name }}</span>
             {% if item.description|length < 20 %}
             <span class="products__item-description">{{item.description}}</span>
             {% else %}
             <span class="products__item-description">{{item.description|slice:'0:20'}}...</span>
             {% endif %}
+            {% if item.cost %}
             <span class="products__item-cost">{{ item.cost }}</span>
+            {% else %}
+            <span class="products__item-cost">Значение отсутствует</span>
+            {% endif %}
             <a href="{% url 'products:detail' pk=item.id %}">Перейти</a>
-            </li>
+        </li>
     {% endfor %}
     </ul>
 {% endblock %}
