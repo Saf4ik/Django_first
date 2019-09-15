@@ -12,9 +12,14 @@
     padding: 4px 8px;
 }
 
+.products__item-id {
+    font-size: 10px;
+}
+
+
 .products__item-image {
     position: relative;
-    width: 100%;
+    width: 200px;
     height: 198px;
     margin-bottom: 16px;
     top: 0;
