@@ -6,15 +6,6 @@ Update category
 
 {% block page_content %}
 <div class="page__content">
-    <form method="POST" action="">
-        {% csrf_token %}
-        {% for field in form %}
-        <div class="form-content">
-            <label for="{{ field.name }}">{{ field.label }}</label>
-            {{ field }}
-        </div>
-        {% endfor %}
-        <input type="submit" value="Update category">
-    </form>
+    {% include 'components/form.html' with form=form %}
 </div>
 {% endblock %}

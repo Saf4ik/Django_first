@@ -6,28 +6,13 @@ Catalog page
 
 {% block page_content %}
     <link rel="stylesheet" href="/static/products/css/products.css">
-    <ul class="products_item">
+    {% include 'components/pagination.html' with page=page.obj page_range=page_obj.paginator.page_range%}
+    <div class="products_item">
     {% for object in object_list %}
-        <li>
-            <span class="products__item-id">{{ object.id }}</span>
-            {% if object.image %}
-                <img src="{{ object.image.url }}" alt="{{object.image}}" class="products__item-image">
-            {% else %}
-                <span></span>
-            {% endif %}
-            <span class="products__item-name">{{ object.name }}</span>
-            {% if object.description|length < 20 %}
-            <span class="products__item-description">{{object.description}}</span>
-            {% else %}
-            <span class="products__item-description">{{object.description|slice:'0:20'}}...</span>
-            {% endif %}
-            {% if object.cost %}
-            <span class="products__item-cost">{{ object.cost }}</span>
-            {% else %}
-            <span class="products__item-cost">Значение отсутствует</span>
-            {% endif %}
-            <a href="{% url 'products:detail' pk=object.id %}">Перейти</a>
-        </li>
+        {% include 'components/product_item.html' with object=object %}
     {% endfor %}
-    </ul>
+    </div>
+    {% include 'components/pagination.html' with page=page.obj page_range=page_obj.paginator.page_range%}
 {% endblock %}
+
+page.paginator.page_range

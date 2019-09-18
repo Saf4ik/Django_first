@@ -10,13 +10,18 @@ Category page
     {% for object in object_list %}
         <li>
             <span class="products__item-id">{{ object.id }}</span>
+            {% if object.image %}
+            <img src="{{ object.image.url }}" alt="{{object.image}}" class="products__item-image">
+            {% else %}
+            <img src="" alt="" class="products__item-image">
+            {% endif %}
             <span class="products__item-name">{{ object.name }}</span>
             {% if object.description|length < 20 %}
             <span class="products__item-description">{{object.description}}</span>
             {% else %}
             <span class="products__item-description">{{object.description|slice:'0:20'}}...</span>
             {% endif %}
-            <a href="{% url 'categories:content' pk=object.id %}">Перейти</a>
+            <a href="{% url 'categories:detail' slug=object.name %}">Перейти</a>
         </li>
     {% endfor %}
     </ul>

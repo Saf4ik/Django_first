@@ -1,0 +1,21 @@
+<div>
+    <span class="products__item-id">{{ object.id }}</span>
+    {% if object.image %}
+    <a href="{% url 'products:detail' slug=object.name %}">
+        <img src="{{ object.image.url }}" alt="{{object.image}}" class="products__item-image">
+    </a>
+    {% else %}
+    <img src="" alt="" class="products__item-image">
+    {% endif %}
+    <span class="products__item-name">{{ object.name }}</span>
+    {% if object.description|length < 20 %}
+    <span class="products__item-description">{{object.description}}</span>
+    {% else %}
+    <span class="products__item-description">{{object.description|slice:'0:20'}}...</span>
+    {% endif %}
+    {% if object.cost %}
+    <span class="products__item-cost">{{ object.cost }}</span>
+    {% else %}
+    <span class="products__item-cost">Значение отсутствует</span>
+    {% endif %}
+</div>
